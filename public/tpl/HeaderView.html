@@ -1,0 +1,52 @@
+<div class="navbar navbar-inverse navbar-fixed-top" style="z-index: 10;">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#home">MyStore</a>
+
+            <div class="nav-collapse collapse">
+
+                <ul class="nav pull-right">
+                
+                	<li class="dropdown">
+                		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Images <b class="caret"></b></a>
+                		<ul class="dropdown-menu">
+                    		<li><a href="#images">Browse Images</a></li>
+                    		<li><a href="#images/add"> Upload Image</a></li>
+                    	</ul>
+		            </li>
+		            
+		            <li class="dropdown">
+                		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pdfs <b class="caret"></b></a>
+                		<ul class="dropdown-menu">
+                    		<li><a href="#pdfs">Browse PDF</a></li>
+                    		<li><a href="#pdfs/add"> Upload PDF</a></li>
+                    	</ul>
+                    </li>
+                    
+                    <li class="dropdown" style="display: <%= type == 'Admin' ? '' : 'none' %>">
+                		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <b class="caret"></b></a>
+                		<ul class="dropdown-menu">
+                    		<li><a href="#users">Browse User</a></li>
+                    		<li><a href="#users/add"> Add User</a></li>
+                    	</ul>
+                    </li>
+                    
+                    <li class="dropdown">
+		            	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= name=='' ? 'User' : name %> <b class="caret"></b></a>
+		                <ul class="dropdown-menu">
+		                	<li><a href="#users/<%= id %>">Account</a></li>
+		                    <li><a href="/logout">Logout</a></li>
+		                </ul>
+		            </li>
+                </ul>
+				
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>

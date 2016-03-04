@@ -1,0 +1,99 @@
+<div class="row-fluid">
+	<form class="form-horizontal span12" method="post">
+
+        <fieldset>
+
+            <legend><%= name ? name + "'s Details" : 'Add User' %></legend>
+            <br/>
+            <div class="row-fluid status-bar">
+                <div class="span12">
+                    <div class="alert alert-success" style="display: none">
+                        <b>Success!</b> Registration successfully
+                    </div>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="span8">
+                
+
+                    <div class="control-group">
+                        <label for="name" class="control-label">Name:</label>
+
+                        <div class="controls">
+                            <input type="text" id="name" name="name" value="<%= name %>"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="userName" class="control-label">User Name:</label>
+
+                        <div class="controls">
+                            <input type="text" id="userName" name="userName" value="<%= userName %>"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="email" class="control-label">Email:</label>
+
+                        <div class="controls">
+                            <input type="email" id="email" name="email" value="<%= email %>"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group" style="display: <%= id === null ? '' : 'none' %>">
+                        <label for="password" class="control-label">Password:</label>
+
+                        <div class="controls">
+                            <input type="password" id="password" name="password" value="<%= id === null ? '' : '0123456' %>"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group" style="display: <%= id === null ? '' : 'none' %>">
+                        <label for="re_password" class="control-label">Re-Password:</label>
+
+                        <div class="controls">
+                            <input type="password" id="re_password" name="re_password" value="<%= id === null ? '' : '0123456' %>"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="type" class="control-label">Type:</label>
+
+                        <div class="controls">
+                            <select class="form-control" id="type" name="type" >
+    							<option ><%= type=='Admin' ? 'Admin' : 'User' %></option>
+    							<option ><%= type=='Admin' ? 'User' : 'Admin' %></option>
+							</select> 
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="master_password" class="control-label">Master-Password:</label>
+
+                        <div class="controls">
+                            <input type="password" id="master_password" name="master_password" value="<%= master_password %>"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </fieldset>
+
+        <div class="form-actions">
+                <a href="#" class="btn btn-success save" style="display: <%= id === null ? '' : 'none' %>">Add</a>
+            <a href="#" class="btn btn-success save" >Update</a>
+            <a href="#" class="btn btn-danger delete">Delete</a>
+        </div>
+
+    </form>
+</div>

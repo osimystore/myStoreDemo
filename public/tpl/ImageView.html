@@ -1,0 +1,96 @@
+
+<div class="row-fluid">
+
+    <form class="form-horizontal span12" enctype="multipart/form-data">
+
+        <fieldset>
+
+            <legend>Image Details</legend>
+            <br/>
+            <div class="row-fluid status-bar">
+    			<div class="span12">
+        			<div class="alert alert-success" style="display: none">
+            			<b>Success!</b> Image saved successfully
+        			</div>
+   				 </div>
+			</div>
+
+            <div class="row">
+                <div class="span8">
+
+                    <div class="control-group">
+                        <label for="imageId" class="control-label">Id:</label>
+
+                        <div class="controls">
+                            <input id="imageId" name="id" type="text" value="<%= id === null ? '' : id %>"
+                                   disabled/>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="name" class="control-label">Name:</label>
+
+                        <div class="controls">
+                            <input type="text" id="name" name="name" value="<%= name %>"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group" style="display: <%= id === null ? '' : 'none' %>">
+                        <label for="imgFile" class="control-label">File:</label>
+
+                        <div class="controls">
+                            <input type="file" id="imgFile" name="imgFile" accept="image/*"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="description" class="control-label">Notes:</label>
+
+                        <div class="controls">
+                            <textarea id="description" name="description" style="width: 90%;" rows="6"><%= description
+                                %></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="span4" style="width: 280px; height:200px">
+                    <div class="well" style="width: 280px;text-align: center;width:100%; height:100%; margin: 0px auto;">
+                        <p><img id="imageData" style="height: 200px;width: 95%" src="<%= imageData === null ? '../img/upload.jpg' : imageData %>"/></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </fieldset>
+
+        <div class="form-actions">
+            <a href="#" class="btn btn-success save" style="display: <%= id === null ? '' : 'none' %>">Save</a>
+            <a href="#" class="btn btn-success save" style="display: <%= id === null ? 'none' : '' %>">Update</a>
+            <a href="<%= imageData === null ? '#' : imageData %>" target="_blank" class="btn btn-primary" style="display: <%= id === null ? 'none' : '' %>">View/Download</a>
+            <a href="#" class="btn btn-danger delete" style="display: <%= id === null ? 'none' : '' %>">Delete</a>
+        </div>
+
+    </form>
+
+</div>
+<script src="jquery/dist/jquery.min.js"></script>
+<script src="backbone/backbone-model-file-upload.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		$(":file").change(function() {
+			if (this.files && this.files[0]) {
+				var reader = new FileReader();
+				reader.onload = imageIsLoaded;
+				reader.readAsDataURL(this.files[0]);
+			}
+		});
+	});
+
+	function imageIsLoaded(e) {
+		$('#imageData').attr('src', e.target.result);
+	};
+</script>

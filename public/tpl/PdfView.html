@@ -1,0 +1,94 @@
+<script src="jquery/dist/jquery.min.js"></script>
+<script src="backbone/backbone-model-file-upload.js"></script>
+
+<div class="row-fluid">
+
+    <form class="form-horizontal span12" enctype="multipart/form-data">
+
+        <fieldset>
+
+            <legend>Pdf Details</legend>
+            <br/>
+
+			<div class="row-fluid status-bar">
+    			<div class="span12">
+        			<div class="alert alert-success" style="display: none">
+            			<b>Success!</b> pdf saved successfully
+        			</div>
+   				 </div>
+			</div>
+
+            <div class="row">
+                <div class="span8">
+
+                    <div class="control-group">
+                        <label for="pdfId" class="control-label">Id:</label>
+
+                        <div class="controls">
+                            <input id="id" name="id" type="text" value="<%= id === null ? '' : id %>"
+                                   disabled/>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="filename" class="control-label">Name:</label>
+
+                        <div class="controls">
+                            <input type="text" id="filename" name="filename" value="<%= filename %>"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group" style="display: <%= id === null ? '' : 'none' %>">
+                        <label for="original_filename" class="control-label">File:</label>
+
+                        <div class="controls">
+                            <input type="file" id="original_filename" name="original_filename" accept=".pdf"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="description" class="control-label">Notes:</label>
+
+                        <div class="controls">
+                            <textarea id="description" name="description" style="width: 90%;" rows="6"><%= description
+                                %></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="span4" id="span4" style= "display: <%= id === null ? 'none' : '' %>;width: 280px;height: 180px;">
+                    <div class="well" style="text-align: center;width:100%;margin: 0px auto;">
+                        <img id="pdfData" style="width: 270px;height: 200px;" src="../img/pdf.png"/>
+           
+                    </div>
+                </div>
+
+            </div>
+
+        </fieldset>
+
+        <div class="form-actions">
+            <a href="#" class="btn btn-success save" style="display: <%= id === null ? '' : 'none' %>">Save</a>
+            <a href="#" class="btn btn-success save" style="display: <%= id === null ? 'none' : '' %>">Update</a>
+            <a href="<%= pdfData === null ? '#' : pdfData %>" target="_blank" class="btn btn-primary" style="display: <%= id === null ? 'none' : '' %>">View/Download</a>
+            <a href="#" class="btn btn-danger delete" style="display: <%= id === null ? 'none' : '' %>">Delete</a>
+        </div>
+
+    </form>
+
+</div>
+
+
+
+<script type="text/javascript">
+	$(function() {
+		$(":file").change(function() {
+			if (this.files && this.files[0]) {
+				$('#span4').show();
+			}
+		});
+	});
+</script>
